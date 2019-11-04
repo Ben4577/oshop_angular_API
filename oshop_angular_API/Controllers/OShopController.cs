@@ -15,7 +15,6 @@ namespace oshop_angular_API.Controllers
 
         private readonly IOshopService _oshopService;
 
-
         public OShopController(IOshopService oshopService)
         {
             _oshopService = oshopService;
