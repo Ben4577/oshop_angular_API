@@ -1,0 +1,257 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\oshop_angular_API\\oshop_angular_API.csproj": {}
+  },
+  "projects": {
+    "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess.DocumentDb\\DataAccess.DocumentDb.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess.DocumentDb\\DataAccess.DocumentDb.csproj",
+        "projectName": "DataAccess.DocumentDb",
+        "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess.DocumentDb\\DataAccess.DocumentDb.csproj",
+        "packagesPath": "C:\\Users\\Ben.Kellington\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess.DocumentDb\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ben.Kellington\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess\\DataAccess.csproj"
+              },
+              "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\Domain.Objects\\Domain.Objects.csproj": {
+                "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\Domain.Objects\\Domain.Objects.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.Azure.DocumentDB": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
+            "Microsoft.Azure.DocumentDB.Core": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess\\DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess\\DataAccess.csproj",
+        "projectName": "DataAccess",
+        "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Ben.Kellington\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ben.Kellington\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\Domain.Objects\\Domain.Objects.csproj": {
+                "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\Domain.Objects\\Domain.Objects.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\Domain.Objects\\Domain.Objects.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\Domain.Objects\\Domain.Objects.csproj",
+        "projectName": "Domain.Objects",
+        "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\Domain.Objects\\Domain.Objects.csproj",
+        "packagesPath": "C:\\Users\\Ben.Kellington\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\Domain.Objects\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ben.Kellington\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\oshop_angular_API\\oshop_angular_API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\oshop_angular_API\\oshop_angular_API.csproj",
+        "projectName": "oshop_angular_API",
+        "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\oshop_angular_API\\oshop_angular_API.csproj",
+        "packagesPath": "C:\\Users\\Ben.Kellington\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\oshop_angular_API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ben.Kellington\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess.DocumentDb\\DataAccess.DocumentDb.csproj": {
+                "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess.DocumentDb\\DataAccess.DocumentDb.csproj"
+              },
+              "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Projects\\Other stuff\\MoshCourse\\oshop API\\oshop\\DataAccess\\DataAccess.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

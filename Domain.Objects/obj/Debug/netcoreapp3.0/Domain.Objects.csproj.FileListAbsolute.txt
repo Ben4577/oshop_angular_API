@@ -1,0 +1,13 @@
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\bin\Debug\netcoreapp3.0\Domain.Objects.exe
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\obj\Debug\netcoreapp3.0\Domain.Objects.AssemblyInfoInputs.cache
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\obj\Debug\netcoreapp3.0\Domain.Objects.AssemblyInfo.cs
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\bin\Debug\netcoreapp3.0\Domain.Objects.deps.json
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\bin\Debug\netcoreapp3.0\Domain.Objects.runtimeconfig.json
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\bin\Debug\netcoreapp3.0\Domain.Objects.runtimeconfig.dev.json
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\bin\Debug\netcoreapp3.0\Domain.Objects.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\bin\Debug\netcoreapp3.0\Domain.Objects.pdb
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\obj\Debug\netcoreapp3.0\Domain.Objects.csproj.CopyComplete
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\obj\Debug\netcoreapp3.0\Domain.Objects.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\obj\Debug\netcoreapp3.0\Domain.Objects.pdb
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\Domain.Objects\obj\Debug\netcoreapp3.0\Domain.Objects.csprojAssemblyReference.cache

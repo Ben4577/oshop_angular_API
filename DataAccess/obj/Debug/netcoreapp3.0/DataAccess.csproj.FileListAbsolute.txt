@@ -1,0 +1,16 @@
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.csprojAssemblyReference.cache
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.AssemblyInfoInputs.cache
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.AssemblyInfo.cs
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\Domain.Objects.exe
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.exe
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.deps.json
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.runtimeconfig.json
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.runtimeconfig.dev.json
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.pdb
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\Domain.Objects.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\bin\Debug\netcoreapp3.0\Domain.Objects.pdb
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.csproj.CopyComplete
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.pdb
