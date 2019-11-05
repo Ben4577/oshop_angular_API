@@ -11,7 +11,8 @@
           "DataAccess": "1.0.0",
           "Domain.Objects": "1.0.0",
           "Microsoft.Azure.DocumentDB": "2.9.0",
-          "Microsoft.Azure.DocumentDB.Core": "2.9.0"
+          "Microsoft.Azure.DocumentDB.Core": "2.9.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "3.0.0"
         },
         "runtime": {
           "DataAccess.DocumentDb.dll": {}
@@ -54,6 +55,25 @@
           "lib/netstandard1.6/Microsoft.Azure.DocumentDB.Core.dll": {
             "assemblyVersion": "2.9.0.0",
             "fileVersion": "2.9.0.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/3.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46305"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/3.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46305"
           }
         }
       },
@@ -1028,6 +1048,20 @@
       "sha512": "sha512-tiYROUX3UGBw9nHytU3ppHXegXk08yvMBnQojJRalbkRVxxxHnBoEY85jMHEbuc6tBOLU9wbvg+91tw+rTLJxA==",
       "path": "microsoft.azure.documentdb.core/2.9.0",
       "hashPath": "microsoft.azure.documentdb.core.2.9.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Lge/PbXC53jI1MF2J92X5EZOeKV8Q/rlB1aV3H9I/ZTDyQGOyBcL03IAvnviWpHKj43BDkNy6kU2KKoh8kAS0g==",
+      "path": "microsoft.extensions.configuration.abstractions/3.0.0",
+      "hashPath": "microsoft.extensions.configuration.abstractions.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6gwewTbmOh+ZVBicVkL1XRp79sx4O7BVY6Yy+7OYZdwn3pyOKe9lOam+3gXJ3TZMjhJZdV0Ub8hxHt2vkrmN5Q==",
+      "path": "microsoft.extensions.primitives/3.0.0",
+      "hashPath": "microsoft.extensions.primitives.3.0.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.1": {
       "type": "package",

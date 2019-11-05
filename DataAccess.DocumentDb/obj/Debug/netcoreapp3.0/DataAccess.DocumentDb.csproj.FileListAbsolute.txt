@@ -22,3 +22,5 @@ C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess.DocumentDb\bin\Deb
 C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess.DocumentDb\bin\Debug\netcoreapp3.0\Microsoft.Azure.DocumentDB.Core.dll
 C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess.DocumentDb\obj\Debug\netcoreapp3.0\DataAccess.DocumentDb.dll
 C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess.DocumentDb\obj\Debug\netcoreapp3.0\DataAccess.DocumentDb.pdb
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess.DocumentDb\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\DataAccess.DocumentDb\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Primitives.dll

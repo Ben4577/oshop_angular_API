@@ -21,9 +21,10 @@ namespace DataAccess.DocumentDb
 
         public async Task<List<Product>> GetProducts()
         {
-            List<Product> products = new List<Product>();
-            return await Task.FromResult(products);
+            var products = _documentDbRepository.Query().AsEnumerable();
+            return await Task.FromResult(products.ToList());
         }
+
 
         public async Task<Product> GetProduct(string productTitle)
         {

@@ -13,22 +13,37 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using oshop_angular_API.Services;
 using DataAccess.DocumentDb;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace oshop_angular_API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+
+        public IConfiguration Configuration { get; private set; }
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true);
+
+            Configuration = builder.Build();
         }
 
-        public IConfiguration Configuration { get; }
-
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var settings = CreateAppSettingsProvider();
+
+            var appSettingsProvider = new ConfigFileAppSettingsProvider();
+            appSettingsProvider.Initialise(Configuration);
+            var settings = appSettingsProvider;
+
+            ///var settings = CreateAppSettingsProvider();
+
+            services.AddSingleton(Configuration);
+
             services.AddControllers();
             
             services.AddScoped<IOshopService, OshopService>();
@@ -45,7 +60,7 @@ namespace oshop_angular_API
             }
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -56,12 +71,12 @@ namespace oshop_angular_API
             });
         }
 
-        private static AppRuntimeSettingsProvider CreateAppSettingsProvider()
-        {
-            var appSettingsProvider = new ConfigFileAppSettingsProvider();
-            //appSettingsProvider.Initialise(Configuration);
-            return appSettingsProvider;
-        }
+        //private static AppRuntimeSettingsProvider CreateAppSettingsProvider()
+        //{
+        //    var appSettingsProvider = new ConfigFileAppSettingsProvider();
+        //    appSettingsProvider.Initialise(Configuration);
+        //    return appSettingsProvider;
+        //}
 
 
     }

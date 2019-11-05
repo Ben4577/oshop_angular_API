@@ -45,15 +45,24 @@ namespace oshop_angular_API.Services
         {
             var product = await _repositoryFactory.OshopRepository.GetProduct(productTitle);
 
-            Product serviceProduct = new Product
+            if (product != null)
             {
-                Title = product.Title,
-                Price = product.Price,
-                Category = product.Category,
-                ImageURL = product.ImageURL
-            };
+                Product serviceProduct = new Product
+                {
+                    Title = product.Title,
+                    Price = product.Price,
+                    Category = product.Category,
+                    ImageURL = product.ImageURL
+                };
+                return serviceProduct;
+            }
+            else
+            {
+                Product serviceProduct = new Product();
+                return serviceProduct;
+            }
 
-            return serviceProduct;
+            
         }
 
         public void CreateProduct(Product product)

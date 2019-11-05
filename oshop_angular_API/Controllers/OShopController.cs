@@ -8,7 +8,7 @@ using oshop_angular_API.Models;
 
 namespace oshop_angular_API.Controllers
 {
-    [Route("api/Oshop")]
+    [Route("api/oshop")]
     [ApiController]
     public class OShopController : ControllerBase
     {
@@ -22,18 +22,18 @@ namespace oshop_angular_API.Controllers
 
 
         // GET api/values
-        [Route("getfamilies/")]
+        [Route("getproducts")]
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
-            var families = await _oshopService.GetProducts();
+            var products = await _oshopService.GetProducts();
 
-            return Ok(families);
+            return Ok(products);
         }
 
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("getproduct/{productTitle}")]
         public async Task<IActionResult> GetProduct(string productTitle)
         {
             var product = await _oshopService.GetProduct(productTitle);
@@ -42,21 +42,21 @@ namespace oshop_angular_API.Controllers
 
 
         // POST api/values
-        [HttpPost]
+        [HttpPost("createproduct/{product}")]
         public void CreateProduct([FromBody] Product product)
         {
             _oshopService.CreateProduct(product);
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
+        [HttpPut("updateproduct/{product}")]
         public void UpdateProduct([FromBody] Product product)
         {
             _oshopService.UpdateProduct(product);
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
+        [HttpDelete("deleteproduct/{product}")]
         public void Delete(int id)
         {
             _oshopService.DeleteProduct(id);
