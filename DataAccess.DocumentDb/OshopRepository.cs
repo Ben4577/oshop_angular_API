@@ -34,7 +34,7 @@ namespace DataAccess.DocumentDb
 
         public void CreateProduct(Product product)
         {
-
+            _documentDbRepository.Save(product);
         }
 
         public void UpdateProduct(Product product)

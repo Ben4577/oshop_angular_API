@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 using oshop_angular_API.Services;
 using DataAccess.DocumentDb;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using IWebHostingEnvironment = Microsoft.AspNetCore.Hosting.IWebHostEnvironment;
 
 namespace oshop_angular_API
 {
@@ -23,7 +23,7 @@ namespace oshop_angular_API
 
         public IConfiguration Configuration { get; private set; }
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder().SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true);
@@ -39,8 +39,6 @@ namespace oshop_angular_API
             var appSettingsProvider = new ConfigFileAppSettingsProvider();
             appSettingsProvider.Initialise(Configuration);
             var settings = appSettingsProvider;
-
-            ///var settings = CreateAppSettingsProvider();
 
             services.AddSingleton(Configuration);
 
@@ -70,13 +68,6 @@ namespace oshop_angular_API
                 endpoints.MapControllers();
             });
         }
-
-        //private static AppRuntimeSettingsProvider CreateAppSettingsProvider()
-        //{
-        //    var appSettingsProvider = new ConfigFileAppSettingsProvider();
-        //    appSettingsProvider.Initialise(Configuration);
-        //    return appSettingsProvider;
-        //}
 
 
     }
