@@ -17,8 +17,8 @@ namespace Domain.Objects.Models
             Id = Guid.NewGuid().ToString();
         }
 
-        public DateTime LastUpdatedDate { get; set; }
-        public string TypeName => GetType().Name;
+        //public DateTime LastUpdatedDate { get; set; }
+        //public string TypeName => GetType().Name;
 
         public override string ToString()
         {

@@ -4,6 +4,7 @@ using oshop_angular_API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
 namespace oshop_angular_API.Services
@@ -29,6 +30,7 @@ namespace oshop_angular_API.Services
             {
                 Product serviceProduct = new Product
                 {
+                    Id = repProduct.Id,
                     Title = repProduct.Title,
                     Price = repProduct.Price,
                     Category = repProduct.Category,
@@ -50,6 +52,7 @@ namespace oshop_angular_API.Services
             {
                 Product serviceProduct = new Product
                 {
+                    Id = product.Id,
                     Title = product.Title,
                     Price = product.Price,
                     Category = product.Category,
@@ -66,18 +69,30 @@ namespace oshop_angular_API.Services
             
         }
 
-        public void SaveProduct(Product product)
+        public async Task<Product> SaveProduct(Product product)
         {
 
             Domain.Objects.Models.Product repoProduct = new Domain.Objects.Models.Product
             {
+                Id = product.Id,
                 Title = product.Title,
                 Price = product.Price,
                 Category = product.Category,
                 ImageURL = product.ImageURL
             };
 
-            _repositoryFactory.OshopRepository.SaveProduct(repoProduct);
+             var newProduct = await _repositoryFactory.OshopRepository.SaveProduct(repoProduct);
+
+             Product prod = new Product
+             {
+                 Id = newProduct.Id,
+                 Title = newProduct.Title,
+                 Price = newProduct.Price,
+                 Category = newProduct.Category,
+                 ImageURL = newProduct.ImageURL
+             };
+
+            return prod;
         }
 
 
@@ -85,6 +100,7 @@ namespace oshop_angular_API.Services
         {
             Domain.Objects.Models.Product repoProduct = new Domain.Objects.Models.Product
             {
+                Id = product.Id,
                 Title = product.Title,
                 Price = product.Price,
                 Category = product.Category,

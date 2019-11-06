@@ -44,10 +44,17 @@ namespace oshop_angular_API.Controllers
 
 
         // POST api/values
-        [HttpPost("createproduct/{product}")]
-        public void CreateProduct([FromBody] Product product)
+        [HttpPost("createproduct")]
+        public async Task<IActionResult> CreateProduct([FromBody] Product product)
         {
-            _oshopService.SaveProduct(product);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+           var prod = await _oshopService.SaveProduct(product);
+
+            return Ok(prod);
         }
 
 
@@ -55,6 +62,7 @@ namespace oshop_angular_API.Controllers
         [HttpPut("updateproduct/{product}")]
         public void UpdateProduct([FromBody] Product product)
         {
+            
             _oshopService.SaveProduct(product);
         }
 

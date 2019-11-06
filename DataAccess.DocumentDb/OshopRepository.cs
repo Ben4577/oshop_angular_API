@@ -33,9 +33,9 @@ namespace DataAccess.DocumentDb
         }
 
 
-        public async void SaveProduct(Product product)
+        public async Task<Product> SaveProduct(Product product)
         {
-            await _documentDbRepository.Save(product);
+            return await _documentDbRepository.Save(product);
         }
 
         public Task DeleteProduct(Product product)

@@ -12,7 +12,7 @@ namespace Domain.Objects.Models
         public string Title { get; set; }
 
         [JsonProperty(PropertyName = "price")]
-        public string Price { get; set; }
+        public decimal Price { get; set; }
 
         [JsonProperty(PropertyName = "category")]
         public string Category { get; set; }
