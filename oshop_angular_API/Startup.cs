@@ -46,7 +46,7 @@ namespace oshop_angular_API
             
             services.AddScoped<IOshopService, OshopService>();
             services.AddSingleton<IRepositoryFactory, RepositoryFactory>(_ => new RepositoryFactory(settings));
-
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +56,10 @@ namespace oshop_angular_API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:4200").AllowAnyMethod()
+            );
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

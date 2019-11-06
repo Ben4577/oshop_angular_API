@@ -32,21 +32,16 @@ namespace DataAccess.DocumentDb
             return await Task.FromResult(product);
         }
 
-        public void CreateProduct(Product product)
+
+        public async void SaveProduct(Product product)
         {
-            _documentDbRepository.Save(product);
+            await _documentDbRepository.Save(product);
         }
 
-        public void UpdateProduct(Product product)
+        public Task DeleteProduct(Product product)
         {
-
+            return _documentDbRepository.Delete(product);
         }
-
-        public void DeleteProduct(int id)
-        {
-
-        }
-
 
 
     }

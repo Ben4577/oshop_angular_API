@@ -60,6 +60,7 @@ namespace DataAccess.DocumentDb
 
                 if (de.StatusCode == HttpStatusCode.NotFound)
                 {
+
                     await _client.CreateDocumentAsync(CollectionUri(), itemToSave, _requestOptions);
 
                 }
@@ -69,7 +70,6 @@ namespace DataAccess.DocumentDb
                 }
             }
             return itemToSave;
-
         }
 
         protected internal async Task Delete(T itemToDelete)
@@ -86,7 +86,6 @@ namespace DataAccess.DocumentDb
                 }
                 throw;
             }
-
         }
 
 

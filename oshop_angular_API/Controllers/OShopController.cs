@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using oshop_angular_API.Services;
 using Microsoft.AspNetCore.Mvc;
 using oshop_angular_API.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace oshop_angular_API.Controllers
 {
@@ -22,12 +24,12 @@ namespace oshop_angular_API.Controllers
 
 
         // GET api/values
+        [AllowAnonymous]
         [Route("getproducts")]
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
             var products = await _oshopService.GetProducts();
-
             return Ok(products);
         }
 
@@ -45,21 +47,23 @@ namespace oshop_angular_API.Controllers
         [HttpPost("createproduct/{product}")]
         public void CreateProduct([FromBody] Product product)
         {
-            _oshopService.CreateProduct(product);
+            _oshopService.SaveProduct(product);
         }
+
 
         // PUT api/values/5
         [HttpPut("updateproduct/{product}")]
         public void UpdateProduct([FromBody] Product product)
         {
-            _oshopService.UpdateProduct(product);
+            _oshopService.SaveProduct(product);
         }
 
         // DELETE api/values/5
         [HttpDelete("deleteproduct/{product}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(Product product)
         {
-            _oshopService.DeleteProduct(id);
+           var result = _oshopService.DeleteProduct(product);
+           return Ok(result);
         }
     }
 }

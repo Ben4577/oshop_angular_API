@@ -41,6 +41,7 @@ namespace oshop_angular_API.Services
             return serviceProducts;
         }
 
+
         public async Task<Product> GetProduct(string productTitle)
         {
             var product = await _repositoryFactory.OshopRepository.GetProduct(productTitle);
@@ -65,7 +66,7 @@ namespace oshop_angular_API.Services
             
         }
 
-        public void CreateProduct(Product product)
+        public void SaveProduct(Product product)
         {
 
             Domain.Objects.Models.Product repoProduct = new Domain.Objects.Models.Product
@@ -76,10 +77,11 @@ namespace oshop_angular_API.Services
                 ImageURL = product.ImageURL
             };
 
-            _repositoryFactory.OshopRepository.CreateProduct(repoProduct);
+            _repositoryFactory.OshopRepository.SaveProduct(repoProduct);
         }
 
-        public void UpdateProduct(Product product)
+
+        public Task DeleteProduct(Product product)
         {
             Domain.Objects.Models.Product repoProduct = new Domain.Objects.Models.Product
             {
@@ -88,12 +90,8 @@ namespace oshop_angular_API.Services
                 Category = product.Category,
                 ImageURL = product.ImageURL
             };
-            _repositoryFactory.OshopRepository.UpdateProduct(repoProduct);
-        }
 
-        public void DeleteProduct(int id)
-        {
-            _repositoryFactory.OshopRepository.DeleteProduct(id);
+            return _repositoryFactory.OshopRepository.DeleteProduct(repoProduct);
         }
 
 

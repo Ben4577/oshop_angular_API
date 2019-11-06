@@ -11,9 +11,8 @@ namespace oshop_angular_API.Services
     {
         Task<List<Product>> GetProducts();
         Task<Product> GetProduct(string productTitle);
-        void CreateProduct(Product product);
-        void UpdateProduct(Product product);
-        void DeleteProduct(int id);
+        void SaveProduct(Product product);
+        Task DeleteProduct(Product product);
 
     }
 }
