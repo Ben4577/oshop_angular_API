@@ -34,7 +34,7 @@ namespace oshop_angular_API.Services
                     Title = repProduct.Title,
                     Price = repProduct.Price,
                     Category = repProduct.Category,
-                    ImageURL = repProduct.ImageURL
+                    ImageUrl = repProduct.ImageUrl
                 };
 
                 serviceProducts.Add(serviceProduct);
@@ -44,9 +44,9 @@ namespace oshop_angular_API.Services
         }
 
 
-        public async Task<Product> GetProduct(string productTitle)
+        public async Task<Product> GetProduct(string productId)
         {
-            var product = await _repositoryFactory.OshopRepository.GetProduct(productTitle);
+            var product = await _repositoryFactory.OshopRepository.GetProduct(productId);
 
             if (product != null)
             {
@@ -56,7 +56,7 @@ namespace oshop_angular_API.Services
                     Title = product.Title,
                     Price = product.Price,
                     Category = product.Category,
-                    ImageURL = product.ImageURL
+                    ImageUrl = product.ImageUrl
                 };
                 return serviceProduct;
             }
@@ -78,7 +78,7 @@ namespace oshop_angular_API.Services
                 Title = product.Title,
                 Price = product.Price,
                 Category = product.Category,
-                ImageURL = product.ImageURL
+                ImageUrl = product.ImageUrl
             };
 
              var newProduct = await _repositoryFactory.OshopRepository.SaveProduct(repoProduct);
@@ -89,7 +89,7 @@ namespace oshop_angular_API.Services
                  Title = newProduct.Title,
                  Price = newProduct.Price,
                  Category = newProduct.Category,
-                 ImageURL = newProduct.ImageURL
+                 ImageUrl = newProduct.ImageUrl
              };
 
             return prod;
@@ -104,7 +104,7 @@ namespace oshop_angular_API.Services
                 Title = product.Title,
                 Price = product.Price,
                 Category = product.Category,
-                ImageURL = product.ImageURL
+                ImageUrl = product.ImageUrl
             };
 
             return _repositoryFactory.OshopRepository.DeleteProduct(repoProduct);

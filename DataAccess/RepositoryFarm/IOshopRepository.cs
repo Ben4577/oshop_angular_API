@@ -9,7 +9,7 @@ namespace DataAccess.RepositoryFarm
     public interface IOshopRepository 
     { 
         Task<List<Product>> GetProducts();
-       Task<Product> GetProduct(string productTitle);
+       Task<Product> GetProduct(string productId);
        Task<Product> SaveProduct(Product product);
        Task DeleteProduct(Product product);
     }

@@ -14,6 +14,7 @@ namespace DataAccess.DocumentDb
         private readonly DocumentClient _client;
         private readonly string _databaseName;
         private readonly string _collectionName;
+        private readonly PartitionKey _partitionKey;
 
         public RepositoryFactory(AppRuntimeSettingsProvider settings)
         {
@@ -28,6 +29,7 @@ namespace DataAccess.DocumentDb
             var primaryKey = _settings.DocumentDbPrimaryKey;
             _databaseName = _settings.DocumentDbDatabaseName;
             _collectionName = _settings.DocumentDbCollectionName;
+
 
             _client = new DocumentClient(new Uri(endpointUrl), primaryKey, connectionPolicy);
 

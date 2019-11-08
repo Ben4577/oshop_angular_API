@@ -26,9 +26,9 @@ namespace DataAccess.DocumentDb
         }
 
 
-        public async Task<Product> GetProduct(string productTitle)
+        public async Task<Product> GetProduct(string productId)
         {
-            Product product = _documentDbRepository.Query().Where(x => x.Title == productTitle).AsEnumerable().FirstOrDefault();
+            Product product = _documentDbRepository.Query().Where(x => x.Id == productId).AsEnumerable().FirstOrDefault();
             return await Task.FromResult(product);
         }
 

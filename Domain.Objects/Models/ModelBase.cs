@@ -18,7 +18,9 @@ namespace Domain.Objects.Models
         }
 
         //public DateTime LastUpdatedDate { get; set; }
-        //public string TypeName => GetType().Name;
+        [JsonProperty(PropertyName = "typename")]
+        public string TypeName => GetType().Name;
+
 
         public override string ToString()
         {

@@ -10,7 +10,7 @@ namespace oshop_angular_API.Services
     public interface IOshopService
     {
         Task<List<Product>> GetProducts();
-        Task<Product> GetProduct(string productTitle);
+        Task<Product> GetProduct(string productId);
         Task<Product> SaveProduct(Product product);
         Task DeleteProduct(Product product);
 

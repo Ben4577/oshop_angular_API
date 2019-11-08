@@ -17,8 +17,8 @@ namespace Domain.Objects.Models
         [JsonProperty(PropertyName = "category")]
         public string Category { get; set; }
 
-        [JsonProperty(PropertyName = "imageURL")]
-        public string ImageURL { get; set; }
+        [JsonProperty(PropertyName = "imageUrl")]
+        public string ImageUrl { get; set; }
 
 
     }

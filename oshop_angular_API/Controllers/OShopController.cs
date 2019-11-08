@@ -35,10 +35,10 @@ namespace oshop_angular_API.Controllers
 
 
         // GET api/values/5
-        [HttpGet("getproduct/{productTitle}")]
-        public async Task<IActionResult> GetProduct(string productTitle)
+        [HttpGet("getproduct/{productId}")]
+        public async Task<IActionResult> GetProduct(string productId)
         {
-            var product = await _oshopService.GetProduct(productTitle);
+            var product = await _oshopService.GetProduct(productId);
             return Ok(product);
         }
 
@@ -53,17 +53,16 @@ namespace oshop_angular_API.Controllers
             }
 
            var prod = await _oshopService.SaveProduct(product);
-
-            return Ok(prod);
+           return Ok(prod);
         }
 
 
-        // PUT api/values/5
-        [HttpPut("updateproduct/{product}")]
-        public void UpdateProduct([FromBody] Product product)
+        // PUT api/oshop/updateproduct/5
+        [HttpPut("updateproduct")]
+        public async Task<IActionResult> UpdateProduct([FromBody] Product product)
         {
-            
-            _oshopService.SaveProduct(product);
+            var prod = await _oshopService.SaveProduct(product);
+            return Ok(prod);
         }
 
         // DELETE api/values/5
