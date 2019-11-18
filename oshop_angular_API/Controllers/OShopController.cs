@@ -66,10 +66,11 @@ namespace oshop_angular_API.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("deleteproduct/{product}")]
-        public async Task<IActionResult> Delete(Product product)
+        [HttpDelete("deleteproduct/{productId}")]
+        public async Task<IActionResult> Delete(string productId)
         {
-           var result = _oshopService.DeleteProduct(product);
+           var result = await _oshopService.DeleteProduct(productId);
+
            return Ok(result);
         }
     }

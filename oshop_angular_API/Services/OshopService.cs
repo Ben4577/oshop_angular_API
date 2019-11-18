@@ -96,18 +96,9 @@ namespace oshop_angular_API.Services
         }
 
 
-        public Task DeleteProduct(Product product)
+        public async Task<bool> DeleteProduct(string ProductId)
         {
-            Domain.Objects.Models.Product repoProduct = new Domain.Objects.Models.Product
-            {
-                Id = product.Id,
-                Title = product.Title,
-                Price = product.Price,
-                Category = product.Category,
-                ImageUrl = product.ImageUrl
-            };
-
-            return _repositoryFactory.OshopRepository.DeleteProduct(repoProduct);
+            return await _repositoryFactory.OshopRepository.DeleteProduct(ProductId);
         }
 
 

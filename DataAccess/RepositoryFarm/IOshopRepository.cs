@@ -11,6 +11,6 @@ namespace DataAccess.RepositoryFarm
         Task<List<Product>> GetProducts();
        Task<Product> GetProduct(string productId);
        Task<Product> SaveProduct(Product product);
-       Task DeleteProduct(Product product);
+       Task<bool> DeleteProduct(string productId);
     }
 }

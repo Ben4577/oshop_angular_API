@@ -12,8 +12,6 @@ namespace DataAccess.DocumentDb
         public string DocumentDbPrimaryKey { get; set; }
         public string DocumentDbDatabaseName { get; set; }
         public string DocumentDbCollectionName { get; set; }
-        public PartitionKey PartitionKey { get; set; }
-
 
 
         public void Initialise(IConfiguration configuration)

@@ -154,43 +154,34 @@ namespace DataAccess.DocumentDb
 
         protected internal async Task<T> Save(T itemToSave)
         {
-            try
+
+
+            if (itemToSave.Id != null)
             {
-               // itemToSave.LastUpdatedDate = DateTime.Now;
+                // itemToSave.LastUpdatedDate = DateTime.Now;
                 await _client.ReadDocumentAsync(DocumentUri(itemToSave.Id), _requestOptions);
                 await _client.ReplaceDocumentAsync(DocumentUri(itemToSave.Id), itemToSave, _requestOptions);
-
             }
-            catch (DocumentClientException de)
+            else
             {
-
-                if (de.StatusCode == HttpStatusCode.NotFound)
-                {
-
-                    await _client.CreateDocumentAsync(CollectionUri(), itemToSave, _requestOptions);
-                }
-                else
-                {
-                    throw;
-                }
+                itemToSave.Id = Guid.NewGuid().ToString();
+                await _client.CreateDocumentAsync(CollectionUri(), itemToSave, _requestOptions);
             }
+
             return itemToSave;
 
         }
 
-        protected internal async Task Delete(T itemToDelete)
+        protected internal async Task<bool> Delete(T itemToDelete, string Id)
         {
             try
             {
-                await _client.DeleteDocumentAsync(DocumentUri(itemToDelete.Id), _requestOptions);
+                await _client.DeleteDocumentAsync(DocumentUri(Id), _requestOptions);
+                return true;
             }
             catch (DocumentClientException documentClientException)
             {
-                if (documentClientException.StatusCode == HttpStatusCode.NotFound)
-                {
-                    return;
-                }
-                throw;
+                return false;
             }
 
         }
