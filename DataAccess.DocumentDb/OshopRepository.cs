@@ -25,6 +25,14 @@ namespace DataAccess.DocumentDb
             return await Task.FromResult(products.ToList());
         }
 
+        
+        public async Task<List<string>> GetCategories()
+        {
+            var categories = _documentDbRepository.Query().Select(x =>x.Category).Distinct().AsEnumerable();
+            return await Task.FromResult(categories.ToList());
+        }
+
+
 
         public async Task<Product> GetProduct(string productId)
         {

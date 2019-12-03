@@ -12,5 +12,6 @@ namespace DataAccess.RepositoryFarm
        Task<Product> GetProduct(string productId);
        Task<Product> SaveProduct(Product product);
        Task<bool> DeleteProduct(string productId);
+       Task<List<string>> GetCategories();
     }
 }

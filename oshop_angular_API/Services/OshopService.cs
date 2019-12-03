@@ -1,11 +1,12 @@
 ﻿using DataAccess.RepositoryFactory;
 using Microsoft.AspNetCore.Mvc;
-using oshop_angular_API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
+using Domain.Objects.Models;
+using Product = oshop_angular_API.Models.Product;
 
 namespace oshop_angular_API.Services
 {
@@ -65,8 +66,6 @@ namespace oshop_angular_API.Services
                 Product serviceProduct = new Product();
                 return serviceProduct;
             }
-
-            
         }
 
         public async Task<Product> SaveProduct(Product product)
@@ -102,7 +101,23 @@ namespace oshop_angular_API.Services
         }
 
 
+        
+        public async Task<List<Category>> GetCategories()
+        {
+            var repositoryCategories = await _repositoryFactory.OshopRepository.GetCategories();
 
+            List<Category> serviceCategories = new List<Category>();
+
+            foreach (var cat in repositoryCategories)
+            {
+                Category category = new Category
+                {
+                    name = cat
+                };
+                serviceCategories.Add(category);
+            }
+            return serviceCategories;
+        }
 
 
     }

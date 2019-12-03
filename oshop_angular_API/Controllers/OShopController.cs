@@ -73,5 +73,21 @@ namespace oshop_angular_API.Controllers
 
            return Ok(result);
         }
+
+
+
+        // GET api/values
+        [AllowAnonymous]
+        [Route("getcategories")]
+        [HttpGet]
+        public async Task<IActionResult> GetCategories()
+        {
+            var categories = await _oshopService.GetCategories();
+            return Ok(categories);
+        }
+
+
+
+
     }
 }
