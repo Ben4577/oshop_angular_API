@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 namespace DataAccess.RepositoryFactory
 {
     public interface IRepositoryFactory
-    { IOshopRepository OshopRepository { get; }
+    {
+        IOshopRepository OshopRepository { get; }
+        IShoppingCartRepository ShoppingCartRepository { get; }
         Task CreateDatabaseIfNotExists();
+
+
+
     }
 }

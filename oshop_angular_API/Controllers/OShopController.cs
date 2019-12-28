@@ -7,6 +7,7 @@ using oshop_angular_API.Services;
 using Microsoft.AspNetCore.Mvc;
 using oshop_angular_API.Models;
 using Microsoft.AspNetCore.Cors;
+using Newtonsoft.Json;
 
 namespace oshop_angular_API.Controllers
 {
@@ -22,7 +23,6 @@ namespace oshop_angular_API.Controllers
             _oshopService = oshopService;
         }
 
-
         // GET api/values
         [AllowAnonymous]
         [Route("getproducts")]
@@ -33,7 +33,6 @@ namespace oshop_angular_API.Controllers
             return Ok(products);
         }
 
-
         // GET api/values/5
         [HttpGet("getproduct/{productId}")]
         public async Task<IActionResult> GetProduct(string productId)
@@ -41,7 +40,6 @@ namespace oshop_angular_API.Controllers
             var product = await _oshopService.GetProduct(productId);
             return Ok(product);
         }
-
 
         // POST api/values
         [HttpPost("createproduct")]
@@ -51,11 +49,9 @@ namespace oshop_angular_API.Controllers
             {
                 return BadRequest();
             }
-
-           var prod = await _oshopService.SaveProduct(product);
+            var prod = await _oshopService.SaveProduct(product);
            return Ok(prod);
         }
-
 
         // PUT api/oshop/updateproduct/5
         [HttpPut("updateproduct")]
@@ -65,7 +61,6 @@ namespace oshop_angular_API.Controllers
             return Ok(prod);
         }
 
-        // DELETE api/values/5
         [HttpDelete("deleteproduct/{productId}")]
         public async Task<IActionResult> Delete(string productId)
         {
@@ -74,9 +69,6 @@ namespace oshop_angular_API.Controllers
            return Ok(result);
         }
 
-
-
-        // GET api/values
         [AllowAnonymous]
         [Route("getcategories")]
         [HttpGet]
@@ -86,7 +78,14 @@ namespace oshop_angular_API.Controllers
             return Ok(categories);
         }
 
-
+        [AllowAnonymous]
+        [Route("createshoppingcartid")]
+        [HttpGet]
+        public async Task<IActionResult> CreateShoppingCartId()
+        {
+            var shoppingCart = await _oshopService.CreateShoppingCartId();
+            return Ok(shoppingCart);
+        }
 
 
     }

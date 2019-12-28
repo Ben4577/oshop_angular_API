@@ -120,5 +120,21 @@ namespace oshop_angular_API.Services
         }
 
 
+        public async Task<ShoppingCart> CreateShoppingCartId()
+        {
+            ShoppingCart shoppingCart = new ShoppingCart
+            {
+                Id = null,
+                DateCreated = DateTime.Now
+            };
+            var shoppingCartRep =  await _repositoryFactory.ShoppingCartRepository.CreateShoppingCart(shoppingCart);
+
+            shoppingCart.Id = shoppingCartRep.Id;
+            shoppingCart.DateCreated = shoppingCartRep.DateCreated;
+
+            return shoppingCart;
+        }
+
+
     }
 }

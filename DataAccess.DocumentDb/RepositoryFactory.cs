@@ -16,6 +16,10 @@ namespace DataAccess.DocumentDb
         private readonly string _collectionName;
         private readonly PartitionKey _partitionKey;
 
+        public IOshopRepository OshopRepository { get; }
+        public IShoppingCartRepository ShoppingCartRepository { get; }
+
+
         public RepositoryFactory(AppRuntimeSettingsProvider settings)
         {
             var connectionPolicy = new ConnectionPolicy
@@ -34,9 +38,10 @@ namespace DataAccess.DocumentDb
             _client = new DocumentClient(new Uri(endpointUrl), primaryKey, connectionPolicy);
 
             OshopRepository = new OshopRepository(new DocumentDbRepository<Product>(_client, _databaseName, _collectionName));
+            ShoppingCartRepository = new ShoppingCartRepository(new DocumentDbRepository<ShoppingCart>(_client, _databaseName, _collectionName));
         }
 
-        public IOshopRepository OshopRepository { get; }
+
 
         public async Task CreateDatabaseIfNotExists()
         {

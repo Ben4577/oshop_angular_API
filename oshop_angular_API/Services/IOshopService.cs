@@ -15,6 +15,6 @@ namespace oshop_angular_API.Services
         Task<Product> SaveProduct(Product product);
         Task<bool> DeleteProduct(string ProductId);
         Task<List<Category>> GetCategories();
-
+        Task<ShoppingCart> CreateShoppingCartId();
     }
 }
