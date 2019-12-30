@@ -17,7 +17,7 @@ namespace DataAccess.DocumentDb
         private readonly PartitionKey _partitionKey;
 
         public IOshopRepository OshopRepository { get; }
-        public IShoppingCartRepository ShoppingCartRepository { get; }
+        public IOrderRepository OrderRepository { get; }
 
 
         public RepositoryFactory(AppRuntimeSettingsProvider settings)
@@ -38,7 +38,7 @@ namespace DataAccess.DocumentDb
             _client = new DocumentClient(new Uri(endpointUrl), primaryKey, connectionPolicy);
 
             OshopRepository = new OshopRepository(new DocumentDbRepository<Product>(_client, _databaseName, _collectionName));
-            ShoppingCartRepository = new ShoppingCartRepository(new DocumentDbRepository<ShoppingCart>(_client, _databaseName, _collectionName));
+            OrderRepository = new OrderRepository(new DocumentDbRepository<Order>(_client, _databaseName, _collectionName));
         }
 
 

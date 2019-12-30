@@ -9,7 +9,7 @@ namespace DataAccess.RepositoryFactory
     public interface IRepositoryFactory
     {
         IOshopRepository OshopRepository { get; }
-        IShoppingCartRepository ShoppingCartRepository { get; }
+        IOrderRepository OrderRepository { get; }
         Task CreateDatabaseIfNotExists();
 
 

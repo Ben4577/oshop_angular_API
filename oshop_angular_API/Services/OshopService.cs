@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using Domain.Objects.Models;
-using Product = oshop_angular_API.Models.Product;
+
 
 namespace oshop_angular_API.Services
 {
@@ -70,28 +70,8 @@ namespace oshop_angular_API.Services
 
         public async Task<Product> SaveProduct(Product product)
         {
-
-            Domain.Objects.Models.Product repoProduct = new Domain.Objects.Models.Product
-            {
-                Id = product.Id,
-                Title = product.Title,
-                Price = product.Price,
-                Category = product.Category,
-                ImageUrl = product.ImageUrl
-            };
-
-             var newProduct = await _repositoryFactory.OshopRepository.SaveProduct(repoProduct);
-
-             Product prod = new Product
-             {
-                 Id = newProduct.Id,
-                 Title = newProduct.Title,
-                 Price = newProduct.Price,
-                 Category = newProduct.Category,
-                 ImageUrl = newProduct.ImageUrl
-             };
-
-            return prod;
+            var newProduct = await _repositoryFactory.OshopRepository.SaveProduct(product);
+            return newProduct;
         }
 
 
@@ -120,21 +100,11 @@ namespace oshop_angular_API.Services
         }
 
 
-        public async Task<ShoppingCart> CreateShoppingCartId()
+        public async Task<Order> SaveOrder(Order order)
         {
-            ShoppingCart shoppingCart = new ShoppingCart
-            {
-                Id = null,
-                DateCreated = DateTime.Now
-            };
-            var shoppingCartRep =  await _repositoryFactory.ShoppingCartRepository.CreateShoppingCart(shoppingCart);
-
-            shoppingCart.Id = shoppingCartRep.Id;
-            shoppingCart.DateCreated = shoppingCartRep.DateCreated;
-
-            return shoppingCart;
+            var newOrder = await _repositoryFactory.OrderRepository.SaveOrder(order);
+            return newOrder;
         }
-
 
     }
 }

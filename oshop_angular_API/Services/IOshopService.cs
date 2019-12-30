@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Domain.Objects.Models;
-using Product = oshop_angular_API.Models.Product;
 
 namespace oshop_angular_API.Services
 {
@@ -15,6 +11,6 @@ namespace oshop_angular_API.Services
         Task<Product> SaveProduct(Product product);
         Task<bool> DeleteProduct(string ProductId);
         Task<List<Category>> GetCategories();
-        Task<ShoppingCart> CreateShoppingCartId();
+        Task<Order> SaveOrder(Order order);
     }
 }

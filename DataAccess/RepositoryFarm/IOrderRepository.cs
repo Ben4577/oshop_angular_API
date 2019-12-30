@@ -6,8 +6,8 @@ using Domain.Objects.Models;
 
 namespace DataAccess.RepositoryFarm
 {
-    public interface IShoppingCartRepository
-    {
-        Task<ShoppingCart> CreateShoppingCart(ShoppingCart shoppingCart);
+    public interface IOrderRepository
+    { 
+        Task<Order> SaveOrder(Order order);
     }
 }

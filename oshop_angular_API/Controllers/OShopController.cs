@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Domain.Objects.Models;
 using Microsoft.AspNetCore.Authorization;
 using oshop_angular_API.Services;
 using Microsoft.AspNetCore.Mvc;
-using oshop_angular_API.Models;
-using Microsoft.AspNetCore.Cors;
-using Newtonsoft.Json;
+
+
 
 namespace oshop_angular_API.Controllers
 {
@@ -25,7 +22,7 @@ namespace oshop_angular_API.Controllers
 
         // GET api/values
         [AllowAnonymous]
-        [Route("getproducts")]
+        [Route("getProducts")]
         [HttpGet]
         public async Task<IActionResult> GetProducts()
         {
@@ -34,7 +31,7 @@ namespace oshop_angular_API.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("getproduct/{productId}")]
+        [HttpGet("getProduct/{productId}")]
         public async Task<IActionResult> GetProduct(string productId)
         {
             var product = await _oshopService.GetProduct(productId);
@@ -42,7 +39,7 @@ namespace oshop_angular_API.Controllers
         }
 
         // POST api/values
-        [HttpPost("createproduct")]
+        [HttpPost("createProduct")]
         public async Task<IActionResult> CreateProduct([FromBody] Product product)
         {
             if (!ModelState.IsValid)
@@ -53,15 +50,14 @@ namespace oshop_angular_API.Controllers
            return Ok(prod);
         }
 
-        // PUT api/oshop/updateproduct/5
-        [HttpPut("updateproduct")]
+        [HttpPut("updateProduct")]
         public async Task<IActionResult> UpdateProduct([FromBody] Product product)
         {
             var prod = await _oshopService.SaveProduct(product);
             return Ok(prod);
         }
 
-        [HttpDelete("deleteproduct/{productId}")]
+        [HttpDelete("deleteProduct/{productId}")]
         public async Task<IActionResult> Delete(string productId)
         {
            var result = await _oshopService.DeleteProduct(productId);
@@ -70,7 +66,7 @@ namespace oshop_angular_API.Controllers
         }
 
         [AllowAnonymous]
-        [Route("getcategories")]
+        [Route("getCategories")]
         [HttpGet]
         public async Task<IActionResult> GetCategories()
         {
@@ -78,14 +74,21 @@ namespace oshop_angular_API.Controllers
             return Ok(categories);
         }
 
-        [AllowAnonymous]
-        [Route("createshoppingcartid")]
-        [HttpGet]
-        public async Task<IActionResult> CreateShoppingCartId()
+
+        [HttpPost("placeOrder")]
+        public async Task<IActionResult> PlaceOrder([FromBody] Order order)
         {
-            var shoppingCart = await _oshopService.CreateShoppingCartId();
-            return Ok(shoppingCart);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            var prod = await _oshopService.SaveOrder(order);
+            return Ok(prod);
         }
+
+
+
+
 
 
     }
