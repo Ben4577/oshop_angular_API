@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using oshop_angular_API.Services;
 using DataAccess.DocumentDb;
+using Microsoft.EntityFrameworkCore;
+using oshop_angular_API.Models.Identity;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 using IWebHostingEnvironment = Microsoft.AspNetCore.Hosting.IWebHostEnvironment;
 
@@ -40,9 +42,21 @@ namespace oshop_angular_API
             appSettingsProvider.Initialise(Configuration);
             var settings = appSettingsProvider;
 
+            services.AddIdentity<User, Role>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<IdentityAppContext>();
+
+
+            services.AddDbContext<IdentityAppContext>(cfg =>
+            {
+                cfg.UseSqlServer(Configuration.GetConnectionString("AppData"));
+            });
+
+
             services.AddSingleton(Configuration);
 
-            services.AddControllers();
+            services.AddControllersWithViews();
             
             services.AddScoped<IOshopService, OshopService>();
             services.AddSingleton<IRepositoryFactory, RepositoryFactory>(_ => new RepositoryFactory(settings));
@@ -65,14 +79,23 @@ namespace oshop_angular_API
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseAuthentication();
+
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+              //endpoints.MapControllers();
+              endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
             });
+
+
         }
 
 

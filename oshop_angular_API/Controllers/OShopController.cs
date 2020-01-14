@@ -5,7 +5,6 @@ using oshop_angular_API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
-
 namespace oshop_angular_API.Controllers
 {
     [Route("api/oshop")]
@@ -73,7 +72,6 @@ namespace oshop_angular_API.Controllers
             var categories = await _oshopService.GetCategories();
             return Ok(categories);
         }
-
 
         [HttpPost("placeOrder")]
         public async Task<IActionResult> PlaceOrder([FromBody] Order order)
