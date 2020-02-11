@@ -134,8 +134,11 @@ namespace oshop_angular_API.Controllers
 
                 if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                 {
-                    var userFullName = user.FirstName + ' ' + user.LastName;
-                    return Ok(userFullName);
+                    ReturnUser returnUser = new ReturnUser
+                    {
+                        FullName = user.FirstName + ' ' + user.LastName
+                    };
+                    return Ok(returnUser);
                 }
             }
 
@@ -144,11 +147,14 @@ namespace oshop_angular_API.Controllers
         }
 
 
-        //public async Task<RedirectResult> Logout(string returnUrl = "/")
-        //{
-        //    await _signInManager.SignOutAsync();
-        //    return Redirect(returnUrl);
-        //}
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok(true);
+        }
 
 
 
