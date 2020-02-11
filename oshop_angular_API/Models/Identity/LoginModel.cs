@@ -10,14 +10,12 @@ namespace oshop_angular_API.Models.Identity
 {
     public class LoginModel
     {
-        [Required]
-        [Email(ErrorMessage = "Not a valid email")]
+
         public string UserName { get; set; }
 
-        [Required]
         public string Password { get; set; }
 
-        public string ReturnUrl { get; set; } = "/";
+        //public string ReturnUrl { get; set; } = "/";
 
     }
 }

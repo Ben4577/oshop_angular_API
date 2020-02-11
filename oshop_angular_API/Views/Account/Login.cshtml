@@ -2,6 +2,10 @@
 
 
 
+@*<p>rere
+    </p>*@
+
+
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,7 +27,7 @@
             <br>
             <form asp-action="Login" asp-controller="Account" method="post">
 
-                <input type="hidden" asp-for="ReturnUrl" />
+                @*<input type="hidden" asp-for="ReturnUrl" />*@
 
                 <div class="form-group">
                     <label asp-for="UserName">User Name</label>

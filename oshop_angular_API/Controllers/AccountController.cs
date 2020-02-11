@@ -11,7 +11,7 @@ using oshop_angular_API.Models.Identity;
 namespace oshop_angular_API.Controllers
 {
    
-    //[Route("api/[controller]")]
+    [Route("api/account")]
     public class AccountController : Controller
     {
         private UserManager<User> _userManager { get; }
@@ -41,7 +41,7 @@ namespace oshop_angular_API.Controllers
 
 
         [AllowAnonymous]
-        //[Route("login")]
+        [Route("login")]
         [HttpGet]
         public ViewResult Login()
         {
@@ -93,40 +93,40 @@ namespace oshop_angular_API.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        //[Route("login")]
-        public async Task<IActionResult> Login(LoginModel loginModel)
+        [Route("login")]
+        public async Task<IActionResult> Login([FromBody]LoginModel loginModel)
         {
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Invalid name or password");
-                return View("Login", loginModel);
+                //ModelState.AddModelError("", "Invalid name or password");
+                //return View("Login", loginModel);
+                return BadRequest();
             }
 
             User user = await _userManager.FindByNameAsync(loginModel.UserName);
 
             if (user == null)
             {
-                //Register
-                user = new User
-                {
-                    UserName = loginModel.UserName,
-                    Email = loginModel.UserName,
-                    FirstName = "John",
-                    LastName = "Richards",
-                };
+                return BadRequest();
+                ////Register
+                //user = new User
+                //{
+                //    UserName = loginModel.UserName,
+                //    Email = loginModel.UserName,
+                //    FirstName = "Ben",
+                //    LastName = "Kellington",
+                //};
 
-                IdentityResult result = await _userManager.CreateAsync(user, loginModel.Password);
+                //IdentityResult result = await _userManager.CreateAsync(user, loginModel.Password);
 
-                if(result.Succeeded)
-                {
-                    ViewBag.NewMessage = "You have been Registered";
+                //if(result.Succeeded)
+                //{
+                //    //ViewBag.NewMessage = "You have been Registered";
 
-                    if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
-                    {
-                        return Redirect("/Account/Index");
-                    }
-                }
-
+                //    if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
+                //    {
+                //        return Ok(loginModel);
+                //    }
             }
             else
             {
@@ -134,13 +134,13 @@ namespace oshop_angular_API.Controllers
 
                 if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                 {
-                    return Redirect("/Account/LoggedOn");
+                    var userFullName = user.FirstName + ' ' + user.LastName;
+                    return Ok(userFullName);
                 }
             }
 
-
-            return View("Login", loginModel);
-
+            //return View("Login", loginModel);
+            return BadRequest();
         }
 
 
