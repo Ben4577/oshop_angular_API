@@ -83,44 +83,43 @@ namespace oshop_angular_API.Controllers
 
 
 
-        //[HttpPost("register")]
-        //public async Task<IActionResult> Register(LoginModel loginModel)
-        //{
-        //    try
-        //    {
-        //        User user = await _userManager.FindByNameAsync(loginModel.UserName);
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(LoginModel loginModel)
+        {
+            try
+            {
+                User user = await _userManager.FindByNameAsync(loginModel.UserName);
 
-        //        if (user == null)
-        //        {
-        //            user = new User
-        //            {
-        //                UserName = loginModel.UserName,
-        //                Email = loginModel.UserName,
-        //                Password = loginModel.Password,
-        //                FirstName = "John",
-        //                LastName = "Doe",
-        //            };
+                if (user == null)
+                {
+                    user = new User
+                    {
+                        UserName = loginModel.UserName,
+                        Email = loginModel.UserName,
+                        Password = loginModel.Password,
+                        FirstName = "John",
+                        LastName = "Doe",
+                    };
 
-        //            IdentityResult result = await _userManager.CreateAsync(user, user.Password);
-        //            ViewBag.NewMessage = "You have been Registered";
+                    IdentityResult result = await _userManager.CreateAsync(user, user.Password);
 
-        //            if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
-        //            {
-        //                return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            ViewBag.NewMessage = "User already registered";
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ViewBag.Message = ex.Message;
-        //    }
+                    if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
+                    {
+                        return Ok("You have been Registered");
+                    }
+                }
+                else
+                {
+                    return BadRequest("User already registered");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error: {ex}");
+            }
 
-        //    return View("Login", loginModel);
-        //}
+            return BadRequest();
+        }
 
 
     }
