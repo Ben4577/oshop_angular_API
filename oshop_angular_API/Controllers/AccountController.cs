@@ -2,53 +2,85 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.Objects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using oshop_angular_API.Models.Identity;
+using oshop_angular_API.Services;
 
 namespace oshop_angular_API.Controllers
 {
-   
+
     [Route("api/account")]
     public class AccountController : Controller
     {
+        private readonly IIdentityService _identityService;
         private UserManager<User> _userManager { get; }
         private SignInManager<User> _signInManager { get; }
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager,SignInManager<User> signInManager,
+            IIdentityService identityService)
         {
+            _identityService = identityService;
             _userManager = userManager;
             _signInManager = signInManager;
         }
 
 
         [AllowAnonymous]
-        [HttpGet]
-        public ViewResult Index()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
-        [HttpGet]
-        public ViewResult LoggedOn()
-        {
-            return View();
-        }
-
-
-
-        [AllowAnonymous]
+        [HttpPost]
         [Route("login")]
-        [HttpGet]
-        public ViewResult Login()
+        public async Task<IActionResult> Login([FromBody]LoginModel loginModel)
         {
-            var model = new LoginModel();
+            if (loginModel.UserName.IsNullEmptyOrWhiteSpace() || loginModel.Password.IsNullEmptyOrWhiteSpace())
+            {
+                return BadRequest();
+            }
 
-            return View(model);
+            User user = await _userManager.FindByNameAsync(loginModel.UserName);
+
+            if (user == null)
+            {
+                return BadRequest();
+            }
+
+            await _signInManager.SignOutAsync();
+
+            if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
+            {
+                ReturnUser returnUser = new ReturnUser
+                {
+                    FullName = user.FirstName + ' ' + user.LastName,
+                    Token = _identityService.GetToken()
+                };
+                    return Ok(returnUser);
+            }
+            return BadRequest();
         }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("getBearerToken")]
+        public IActionResult GetBearerToken()
+        { 
+            var token = _identityService.GetToken();
+            return Ok(token);
+        }
+
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok(true);
+        }
+
 
 
         //[HttpPost("register")]
@@ -89,73 +121,6 @@ namespace oshop_angular_API.Controllers
 
         //    return View("Login", loginModel);
         //}
-
-
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("login")]
-        public async Task<IActionResult> Login([FromBody]LoginModel loginModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                //ModelState.AddModelError("", "Invalid name or password");
-                //return View("Login", loginModel);
-                return BadRequest();
-            }
-
-            User user = await _userManager.FindByNameAsync(loginModel.UserName);
-
-            if (user == null)
-            {
-                return BadRequest();
-                ////Register
-                //user = new User
-                //{
-                //    UserName = loginModel.UserName,
-                //    Email = loginModel.UserName,
-                //    FirstName = "Ben",
-                //    LastName = "Kellington",
-                //};
-
-                //IdentityResult result = await _userManager.CreateAsync(user, loginModel.Password);
-
-                //if(result.Succeeded)
-                //{
-                //    //ViewBag.NewMessage = "You have been Registered";
-
-                //    if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
-                //    {
-                //        return Ok(loginModel);
-                //    }
-            }
-            else
-            {
-                await _signInManager.SignOutAsync();
-
-                if ((await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
-                {
-                    ReturnUser returnUser = new ReturnUser
-                    {
-                        FullName = user.FirstName + ' ' + user.LastName
-                    };
-                    return Ok(returnUser);
-                }
-            }
-
-            //return View("Login", loginModel);
-            return BadRequest();
-        }
-
-
-        [AllowAnonymous]
-        [HttpGet]
-        [Route("logout")]
-        public async Task<IActionResult> Logout()
-        {
-            await _signInManager.SignOutAsync();
-            return Ok(true);
-        }
-
 
 
     }

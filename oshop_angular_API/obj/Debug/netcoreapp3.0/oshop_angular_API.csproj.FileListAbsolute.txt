@@ -181,5 +181,12 @@ C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\obj\Debug\n
 C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\obj\Debug\netcoreapp3.0\Razor\Views\Account\Index.cshtml.g.cs
 C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\bin\Debug\netcoreapp3.0\DataAnnotationsExtensions.dll
-C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\obj\Debug\netcoreapp3.0\oshop_angular_API.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\obj\Debug\netcoreapp3.0\Razor\Views\Account\LoggedOn.cshtml.g.cs
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Projects\Other stuff\MoshCourse\oshop API\oshop\oshop_angular_API\obj\Debug\netcoreapp3.0\oshop_angular_API.MvcApplicationPartsAssemblyInfo.cache

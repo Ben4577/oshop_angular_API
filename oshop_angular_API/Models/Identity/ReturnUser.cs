@@ -10,6 +10,8 @@ namespace oshop_angular_API.Models.Identity
     {
         [JsonProperty(PropertyName = "fullName")]
         public string FullName { get; set; }
+        [JsonProperty(PropertyName = "token")]
+        public string Token { get; set; }
 
     }
 }

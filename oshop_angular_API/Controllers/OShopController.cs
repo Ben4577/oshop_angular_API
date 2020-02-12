@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Domain.Objects.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using oshop_angular_API.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace oshop_angular_API.Controllers
 {
+
     [Route("api/oshop")]
     [ApiController]
     public class OShopController : ControllerBase
@@ -19,8 +21,6 @@ namespace oshop_angular_API.Controllers
             _oshopService = oshopService;
         }
 
-        // GET api/values
-        [AllowAnonymous]
         [Route("getProducts")]
         [HttpGet]
         public async Task<IActionResult> GetProducts()
@@ -29,7 +29,6 @@ namespace oshop_angular_API.Controllers
             return Ok(products);
         }
 
-        // GET api/values/5
         [HttpGet("getProduct/{productId}")]
         public async Task<IActionResult> GetProduct(string productId)
         {
@@ -37,7 +36,7 @@ namespace oshop_angular_API.Controllers
             return Ok(product);
         }
 
-        // POST api/values
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost("createProduct")]
         public async Task<IActionResult> CreateProduct([FromBody] Product product)
         {
@@ -49,6 +48,7 @@ namespace oshop_angular_API.Controllers
            return Ok(prod);
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut("updateProduct")]
         public async Task<IActionResult> UpdateProduct([FromBody] Product product)
         {
@@ -56,6 +56,7 @@ namespace oshop_angular_API.Controllers
             return Ok(prod);
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpDelete("deleteProduct/{productId}")]
         public async Task<IActionResult> Delete(string productId)
         {
@@ -64,7 +65,7 @@ namespace oshop_angular_API.Controllers
            return Ok(result);
         }
 
-        [AllowAnonymous]
+
         [Route("getCategories")]
         [HttpGet]
         public async Task<IActionResult> GetCategories()
